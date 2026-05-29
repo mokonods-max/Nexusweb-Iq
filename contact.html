@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا — NexusWebIQ | ابدأ مشروعك الرقمي اليوم</title>
+    <meta name="description" content="تواصل مع فريق NexusWebIQ لبدء مشروعك الرقمي. واتساب: +9647855920345 | تيليجرام: @Moko250. نحن هنا لمساعدتك في بناء متجرك الإلكتروني.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="background-effects">
+        <div class="glow-orb blue"></div>
+        <div class="glow-orb purple"></div>
+        <div class="grid-overlay"></div>
+    </div>
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Header & Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">NexusWebIQ</a>
+            <nav class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="portfolio.html">أعمالنا</a>
+                <a href="pricing.html">الأسعار</a>
+                <a href="contact.html" class="active">تواصل معنا</a>
+            </nav>
+            <a href="contact.html" class="btn btn-gradient">ابدأ مشروعك الآن</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="قائمة التنقل">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">الرئيسية</a>
+        <a href="portfolio.html">أعمالنا</a>
+        <a href="pricing.html">الأسعار</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="contact.html" class="btn btn-gradient">ابدأ مشروعك الآن</a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="fade-in-up">تواصل <span class="text-gradient">معنا</span></h1>
+            <p class="fade-in-up" style="transition-delay: 0.1s;">نحن هنا لمساعدتك في بناء مشروعك الرقمي. تواصل معنا وسنرد عليك خلال ساعات قليلة</p>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- Right Side: Contact Info -->
+                <div class="contact-info fade-in-up">
+                    <h2>لنبني مشروعك <span class="text-gradient">معاً</span></h2>
+                    <p>فريقنا المتخصص جاهز لتحويل رؤيتك إلى واقع رقمي مذهل. سواء كنت تبدأ من الصفر أو تريد تطوير متجرك الحالي، نحن هنا لمساعدتك في كل خطوة.</p>
+
+                    <div class="contact-methods">
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/9647855920345" target="_blank" class="contact-method">
+                            <div class="contact-method-icon whatsapp">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            </div>
+                            <div class="contact-method-info">
+                                <h4>واتساب</h4>
+                                <p>+964 785 592 0345</p>
+                            </div>
+                        </a>
+
+                        <!-- Telegram -->
+                        <a href="https://t.me/Moko250" target="_blank" class="contact-method">
+                            <div class="contact-method-icon telegram">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            </div>
+                            <div class="contact-method-info">
+                                <h4>تيليجرام</h4>
+                                <p>@Moko250</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Quick CTA -->
+                    <div style="margin-top: 20px;">
+                        <a href="https://wa.me/9647855920345" target="_blank" class="btn btn-whatsapp" style="width: 100%; justify-content: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            تواصل عبر الواتساب مباشرة
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Left Side: Contact Form -->
+                <div class="contact-form-wrapper fade-in-up" style="transition-delay: 0.2s;">
+                    <h3>ابدأ مشروعك الآن</h3>
+                    <form action="https://formspree.io/f/YOUR_ENDPOINT" method="POST" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="07XX XXX XXXX" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="package">الباقة المطلوبة</label>
+                            <select id="package" name="package" class="form-control" required>
+                                <option value="" disabled selected>اختر الباقة المناسبة</option>
+                                <option value="economic">الباقة الاقتصادية — 75,000 د.ع</option>
+                                <option value="professional">الباقة الاحترافية — 150,000 د.ع</option>
+                                <option value="vip">باقة الشركات VIP — 450,000 د.ع</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">تفاصيل المشروع</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="اخبرنا عن مشروعك... ماذا تبيع؟ ما هي أهدافك؟ هل لديك تصميم معين في بالك؟" rows="5"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-gradient form-submit">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            إرسال الطلب
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">NexusWebIQ</a>
+                    <p>وكالة تطوير ويب متخصصة في بناء المتاجر الإلكترونية الاحترافية والواجهات الرقمية عالية الأداء. نحول أفكارك إلى واقع رقمي مذهل.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <a href="index.html">الرئيسية</a>
+                    <a href="portfolio.html">أعمالنا</a>
+                    <a href="pricing.html">الأسعار</a>
+                    <a href="contact.html">تواصل معنا</a>
+                </div>
+                <div class="footer-col">
+                    <h4>خدماتنا</h4>
+                    <a href="#">تصميم المتاجر</a>
+                    <a href="#">تحسين SEO</a>
+                    <a href="#">بناء العلامة التجارية</a>
+                    <a href="#">الدعم الفني</a>
+                </div>
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <a href="https://wa.me/9647855920345" target="_blank">واتساب: +964 785 592 0345</a>
+                    <a href="https://t.me/Moko250" target="_blank">تيليجرام: @Moko250</a>
+                    <a href="privacy.html">سياسة الخصوصية</a>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>NexusWebIQ © 2026 — جميع الحقوق محفوظة.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://wa.me/9647855920345" class="social-icon" target="_blank" aria-label="WhatsApp">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

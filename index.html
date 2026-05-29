@@ -3,170 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusWebIQ - نبني واجهتك الرقمية بذكاء وسرعة فائقة</title>
-    <meta name="description" content="نحول متجرك على الانستغرام إلى منصة مبيعات متكاملة. ضاعف أرباحك، وتخلص من فوضى الرسائل، وامتلك متجراً يعكس فخامة علامتك التجارية.">
-    <!-- Google Fonts -->
+    <title>NexusWebIQ — نبني واجهتك الرقمية بذكاء وسرعة فائقة</title>
+    <meta name="description" content="نحول متجرك على الانستغرام إلى منصة مبيعات متكاملة. ضاعف أرباحك، وتخلص من فوضى الرسائل، وامتلك متجراً يعكس فخامة علامتك التجارية. NexusWebIQ وكالة تطوير ويب متخصصة في بناء المتاجر الإلكترونية الاحترافية.">
+    <meta name="keywords" content="تصميم مواقع, متجر إلكتروني, تطوير ويب, NexusWebIQ, تصميم واجهات, SEO, تحسين محركات البحث">
+    <meta name="author" content="NexusWebIQ">
+    <meta property="og:title" content="NexusWebIQ — نبني واجهتك الرقمية بذكاء وسرعة فائقة">
+    <meta property="og:description" content="وكالة تطوير ويب متخصصة في بناء المتاجر الإلكترونية الاحترافية والواجهات الرقمية عالية الأداء.">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Abstract Background Effects -->
+    <!-- Background Effects -->
     <div class="background-effects">
         <div class="glow-orb blue"></div>
         <div class="glow-orb purple"></div>
         <div class="grid-overlay"></div>
     </div>
+    <canvas id="particles-canvas"></canvas>
 
     <!-- Header & Navbar -->
-    <header class="navbar">
+    <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <div class="logo">NexusWebIQ</div>
+            <a href="index.html" class="logo">NexusWebIQ</a>
             <nav class="nav-links">
-                <a href="#home">الرئيسية</a>
-                <a href="#portfolio">أعمالنا</a>
-                <a href="#pricing">الأسعار</a>
-                <a href="#why-us">لماذا نحن؟</a>
+                <a href="index.html" class="active">الرئيسية</a>
+                <a href="portfolio.html">أعمالنا</a>
+                <a href="pricing.html">الأسعار</a>
+                <a href="contact.html">تواصل معنا</a>
             </nav>
-            <a href="#order" class="btn btn-gradient">اطلب متجرك الآن</a>
+            <a href="contact.html" class="btn btn-gradient">ابدأ مشروعك الآن</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="قائمة التنقل">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container hero-content fade-in-up">
-            <h1>نبني واجهتك الرقمية <span class="text-gradient">بذكاء وسرعة فائقة</span></h1>
-            <h2>نحول متجرك على الانستغرام إلى منصة مبيعات متكاملة. ضاعف أرباحك، وتخلص من فوضى الرسائل، وامتلك متجراً يعكس فخامة علامتك التجارية.</h2>
-            <div class="hero-actions">
-                <a href="#pricing" class="btn btn-glow-large">ابدأ مشروعك الآن</a>
-                <a href="#portfolio" class="btn btn-outline">شاهد أعمالنا الحية</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Badges (Marquee) -->
-    <div class="marquee-container">
-        <div class="marquee-content">
-            <!-- First Set -->
-            <span>سرعة تسليم قياسية <span class="bullet">•</span></span>
-            <span>دومين عالمي .com <span class="bullet">•</span></span>
-            <span>لوحة تحكم عربية سهلة <span class="bullet">•</span></span>
-            <span>دعم فني متواصل <span class="bullet">•</span></span>
-            <span>تصميم متوافق مع الهواتف <span class="bullet">•</span></span>
-            <!-- Second Set (Duplicate for smooth scroll) -->
-            <span>سرعة تسليم قياسية <span class="bullet">•</span></span>
-            <span>دومين عالمي .com <span class="bullet">•</span></span>
-            <span>لوحة تحكم عربية سهلة <span class="bullet">•</span></span>
-            <span>دعم فني متواصل <span class="bullet">•</span></span>
-            <span>تصميم متوافق مع الهواتف <span class="bullet">•</span></span>
-            <!-- Third Set for safety on ultra-wide screens -->
-            <span>سرعة تسليم قياسية <span class="bullet">•</span></span>
-            <span>دومين عالمي .com <span class="bullet">•</span></span>
-            <span>لوحة تحكم عربية سهلة <span class="bullet">•</span></span>
-            <span>دعم فني متواصل <span class="bullet">•</span></span>
-            <span>تصميم متوافق مع الهواتف <span class="bullet">•</span></span>
-            <!-- Fourth Set -->
-            <span>سرعة تسليم قياسية <span class="bullet">•</span></span>
-            <span>دومين عالمي .com <span class="bullet">•</span></span>
-            <span>لوحة تحكم عربية سهلة <span class="bullet">•</span></span>
-            <span>دعم فني متواصل <span class="bullet">•</span></span>
-            <span>تصميم متوافق مع الهواتف <span class="bullet">•</span></span>
-        </div>
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">الرئيسية</a>
+        <a href="portfolio.html">أعمالنا</a>
+        <a href="pricing.html">الأسعار</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="contact.html" class="btn btn-gradient">ابدأ مشروعك الآن</a>
     </div>
 
-    <!-- How it Works -->
-    <section id="why-us" class="how-it-works container">
-        <h2 class="section-title fade-in-up">كيف ننقل عملك للمستوى التالي؟</h2>
-        <div class="grid-3">
-            <div class="glass-card fade-in-up" style="transition-delay: 0.1s;">
-                <div class="card-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#gradient-blue-purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <defs>
-                            <linearGradient id="gradient-blue-purple" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#00E5FF" />
-                                <stop offset="100%" stop-color="#B026FF" />
-                            </linearGradient>
-                        </defs>
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                </div>
-                <h3>1. تواصل معنا</h3>
-                <p>اختر الباقة المناسبة وارسل لنا تفاصيل منتجاتك.</p>
-            </div>
-            <div class="glass-card fade-in-up" style="transition-delay: 0.2s;">
-                <div class="card-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#gradient-blue-purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="16 18 22 12 16 6"></polyline>
-                        <polyline points="8 6 2 12 8 18"></polyline>
-                    </svg>
-                </div>
-                <h3>2. التصميم والبرمجة</h3>
-                <p>نقوم ببناء واجهتك الرقمية وتجهيز لوحة التحكم باحترافية.</p>
-            </div>
-            <div class="glass-card fade-in-up" style="transition-delay: 0.3s;">
-                <div class="card-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#gradient-blue-purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M13.5 2.5a6 6 0 0 0-9 9l-2.5 10 10-2.5a6 6 0 0 0 9-9c-2-4-5-7-7.5-7.5z"></path>
-                    </svg>
-                </div>
-                <h3>3. الإطلاق والمبيعات</h3>
-                <p>استلم متجرك الجاهز وابدأ باستقبال الطلبات تلقائياً.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-float hero-float-1"></div>
+        <div class="hero-float hero-float-2"></div>
+        <div class="hero-content fade-in-up">
+            <h1>نبني <span class="text-gradient">واجهتك الرقمية</span> التي تحول الزوار إلى عملاء</h1>
+            <h2>نحول متجرك على الانستغرام إلى منصة مبيعات متكاملة. ضاعف أرباحك، وتخلص من فوضى الرسائل، وامتلك متجراً إلكترونياً يعكس فخامة علامتك التجارية ويبيع على مدار الساعة.</h2>
+            <div class="hero-actions">
+                <a href="contact.html" class="btn btn-glow-large">ابدأ مشروعك الآن</a>
+                <a href="portfolio.html" class="btn btn-outline">شاهد أعمالنا</a>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing container">
-        <h2 class="section-title fade-in-up">باقات مصممة لتناسب ميزانيتك</h2>
-        <div class="pricing-grid">
-            <div class="glass-card pricing-card fade-in-up" style="transition-delay: 0.1s;">
-                <h3>الباقة الاقتصادية</h3>
-                <div class="price">75,000 <span>دينار عراقي</span></div>
-                <ul class="features">
-                    <li>واجهة متجر أنيقة</li>
-                    <li>ربط مباشر للطلب عبر الواتساب</li>
-                    <li>تصميم متوافق مع الجوال</li>
-                    <li>سرعة أداء عالية</li>
-                </ul>
-                <a href="#order" class="btn btn-outline full-width">اطلب هذه الباقة</a>
+    <!-- Trust & Stats Strip -->
+    <section class="stats-strip">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in-up">
+                    <span class="stat-icon">🚀</span>
+                    <span class="stat-number" data-target="100">0</span>
+                    <span class="stat-label">+100 مشروع مكتمل</span>
+                </div>
+                <div class="stat-item fade-in-up" style="transition-delay: 0.1s;">
+                    <span class="stat-icon">⭐</span>
+                    <span class="stat-number" data-target="99">0</span>
+                    <span class="stat-label">99% نسبة رضا العملاء</span>
+                </div>
+                <div class="stat-item fade-in-up" style="transition-delay: 0.2s;">
+                    <span class="stat-icon">🛡️</span>
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">دعم فني على مدار الساعة</span>
+                </div>
+                <div class="stat-item fade-in-up" style="transition-delay: 0.3s;">
+                    <span class="stat-icon">🔒</span>
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">أمان وحماية تامة</span>
+                </div>
             </div>
-            <div class="glass-card pricing-card pro-card fade-in-up" style="transition-delay: 0.2s;">
-                <div class="tag">الأكثر طلباً</div>
-                <h3>الباقة الاحترافية المتكاملة</h3>
-                <div class="price text-gradient">150,000 <span>دينار عراقي</span></div>
-                <ul class="features">
-                    <li>متجر إلكتروني متكامل</li>
-                    <li>نظام سلة تسوق ذكي</li>
-                    <li>لوحة تحكم لإدارة الطلبات</li>
-                    <li>دومين عالمي مجاني (.com)</li>
-                    <li>ربط بمحركات بحث جوجل</li>
-                </ul>
-                <a href="#order" class="btn btn-gradient full-width btn-glow">اطلب هذه الباقة</a>
+        </div>
+    </section>
+
+    <!-- Our Services -->
+    <section class="services section-padding" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in-up">خدماتنا <span class="text-gradient">المتميزة</span></h2>
+            <p class="section-subtitle fade-in-up">نقدم حلولاً رقمية متكاملة تساعدك على التميز في السوق الرقمي وتحقيق أهدافك التجارية</p>
+            <div class="services-grid">
+                <div class="glass-card service-card fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#grad1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#00E5FF"/>
+                                    <stop offset="100%" stop-color="#B026FF"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>تصميم واجهات احترافية</h3>
+                    <p>نصمم واجهات مستخدم فريدة وجذابة تعكس هوية علامتك التجارية. تصاميم عصرية متوافقة مع جميع الأجهزة وتجربة مستخدم سلسة تحول الزوار إلى عملاء دائمين.</p>
+                </div>
+                <div class="glass-card service-card fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#grad1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            <line x1="11" y1="8" x2="11" y2="14"></line>
+                            <line x1="8" y1="11" x2="14" y2="11"></line>
+                        </svg>
+                    </div>
+                    <h3>تحسين محركات البحث SEO</h3>
+                    <p>نضمن ظهور موقعك في الصفحة الأولى على جوجل. تحسين شامل لمحركات البحث يشمل الكلمات المفتاحية والمحتوى والبنية التقنية لموقعك لضمان تدفق العملاء بشكل مستمر.</p>
+                </div>
+                <div class="glass-card service-card fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#grad1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>بناء العلامة التجارية</h3>
+                    <p>نبني هوية بصرية متكاملة لعلامتك التجارية تشمل الشعار والألوان والخطوط. هوية فريدة تميزك عن المنافسين وتبني الثقة والولاء لدى عملائك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Showcase (Animated Slider) -->
+    <section class="portfolio-slider-section section-padding" id="portfolio">
+        <div class="container">
+            <h2 class="section-title fade-in-up">أحدث <span class="text-gradient">أعمالنا</span></h2>
+            <p class="section-subtitle fade-in-up">اكتشف مشاريعنا المميزة التي ساعدت عملائنا على تحقيق نتائج استثنائية</p>
+            <div class="slider-wrapper fade-in-up">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slide">
+                        <img src="assets/portfolio_perfume.png" alt="متجر عطور الفخامة" loading="lazy">
+                        <div class="slide-overlay">
+                            <h3>متجر عطور الفخامة</h3>
+                            <p>متجر إلكتروني متكامل لبيع العطور الفاخرة مع نظام طلبات ذكي</p>
+                            <div>
+                                <span class="slide-tag">HTML5</span>
+                                <span class="slide-tag">CSS3</span>
+                                <span class="slide-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="assets/portfolio_clothing.png" alt="متجر أزياء ستايل" loading="lazy">
+                        <div class="slide-overlay">
+                            <h3>متجر أزياء ستايل</h3>
+                            <p>منصة أزياء عصرية مع تجربة تسوق سلسة ومعرض منتجات تفاعلي</p>
+                            <div>
+                                <span class="slide-tag">React</span>
+                                <span class="slide-tag">Node.js</span>
+                                <span class="slide-tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="assets/portfolio_cosmetics.png" alt="بوتيك التجميل الراقي" loading="lazy">
+                        <div class="slide-overlay">
+                            <h3>بوتيك التجميل الراقي</h3>
+                            <p>متجر مستحضرات تجميل فاخر مع واجهة أنيقة ونظام عرض منتجات متقدم</p>
+                            <div>
+                                <span class="slide-tag">Vue.js</span>
+                                <span class="slide-tag">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" id="sliderPrev" aria-label="السابق">‹</button>
+                <div class="slider-dots" id="sliderDots">
+                    <button class="slider-dot active" data-index="0" aria-label="الشريحة 1"></button>
+                    <button class="slider-dot" data-index="1" aria-label="الشريحة 2"></button>
+                    <button class="slider-dot" data-index="2" aria-label="الشريحة 3"></button>
+                </div>
+                <button class="slider-btn" id="sliderNext" aria-label="التالي">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose NexusWebIQ -->
+    <section class="why-us section-padding" id="why-us">
+        <div class="container">
+            <h2 class="section-title fade-in-up">لماذا <span class="text-gradient">نحن؟</span></h2>
+            <p class="section-subtitle fade-in-up">نجمع بين الإبداع التقني والفهم العميق للسوق المحلي لنقدم لك حلولاً لا مثيل لها</p>
+            <div class="why-us-content">
+                <div class="why-us-item fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="why-us-number">01</div>
+                    <div class="why-us-text">
+                        <h3>سرعة تنفيذ لا تُضاهى</h3>
+                        <p>نلتزم بتسليم مشاريعنا في مواعيدها بدقة متناهية. فريقنا المتخصص يعمل بكفاءة عالية لتحويل رؤيتك إلى واقع رقمي في أقصر وقت ممكن، دون المساومة على الجودة أو التفاصيل.</p>
+                    </div>
+                </div>
+                <div class="why-us-item fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="why-us-number">02</div>
+                    <div class="why-us-text">
+                        <h3>فهم عميق للسوق العراقي والعربي</h3>
+                        <p>نمتلك خبرة واسعة في فهم احتياجات السوق المحلي والعربي. نعرف ما يجذب العميل العراقي، ونصمم تجارب تسوق تلائم ثقافته وعاداته الشرائية لتحقيق أعلى معدلات التحويل.</p>
+                    </div>
+                </div>
+                <div class="why-us-item fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="why-us-number">03</div>
+                    <div class="why-us-text">
+                        <h3>تقنيات حديثة ومتطورة</h3>
+                        <p>نستخدم أحدث التقنيات والأدوات في عالم تطوير الويب لضمان أداء فائق وتجربة مستخدم استثنائية. من الذكاء الاصطناعي إلى تقنيات الحوسبة السحابية، نضع التكنولوجيا في خدمة نجاحك.</p>
+                    </div>
+                </div>
+                <div class="why-us-item fade-in-up" style="transition-delay: 0.4s;">
+                    <div class="why-us-number">04</div>
+                    <div class="why-us-text">
+                        <h3>دعم فني شامل ومستمر</h3>
+                        <p>لا نتركك بعد تسليم المشروع. فريق الدعم الفني لدينا متاح على مدار الساعة لمساعدتك في أي تحديث أو مشكلة تقنية، لضمان استمرارية عملك واستقراره الدائم.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By (Clients Marquee) -->
+    <section class="clients-marquee">
+        <p class="marquee-title fade-in-up">يثق بنا رواد الأعمال والعلامات التجارية</p>
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span>رواد التجارة الإلكترونية <span class="bullet">◆</span></span>
+                <span>علامات التجميل البارزة <span class="bullet">◆</span></span>
+                <span>متاجر الأزياء الفاخرة <span class="bullet">◆</span></span>
+                <span>مطاعم ومقاهي راقية <span class="bullet">◆</span></span>
+                <span>شركات التقنية الناشئة <span class="bullet">◆</span></span>
+                <span>متاجر العطور والعود <span class="bullet">◆</span></span>
+                <span>صالونات ومراكز التجميل <span class="bullet">◆</span></span>
+                <span>وكالات السفر والسياحة <span class="bullet">◆</span></span>
+                <!-- Duplicate for seamless scroll -->
+                <span>رواد التجارة الإلكترونية <span class="bullet">◆</span></span>
+                <span>علامات التجميل البارزة <span class="bullet">◆</span></span>
+                <span>متاجر الأزياء الفاخرة <span class="bullet">◆</span></span>
+                <span>مطاعم ومقاهي راقية <span class="bullet">◆</span></span>
+                <span>شركات التقنية الناشئة <span class="bullet">◆</span></span>
+                <span>متاجر العطور والعود <span class="bullet">◆</span></span>
+                <span>صالونات ومراكز التجميل <span class="bullet">◆</span></span>
+                <span>وكالات السفر والسياحة <span class="bullet">◆</span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials section-padding" id="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in-up">ماذا يقول <span class="text-gradient">عملاؤنا</span></h2>
+            <p class="section-subtitle fade-in-up">آراء حقيقية من أصحاب أعمال وثقوا بنا وحققوا نتائج مذهلة</p>
+            <div class="testimonials-grid">
+                <div class="glass-card testimonial-card fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">والله من أفضل القرارات اللي اتخذتها لعملي. كان عندي حساب انستغرام بس وكنت أضيع وقت بالرسائل. بعد ما بنولي المتجر، المبيعات تضاعفت خلال شهر واحد والعملاء صاروا يطلبون مباشرة بدون ما أرد على كل واحد.</p>
+                    <div class="testimonial-author">أحمد الربيعي</div>
+                    <div class="testimonial-role">صاحب متجر عطور — بغداد</div>
+                </div>
+                <div class="glass-card testimonial-card fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">الفريق محترف جداً ويفهم السوق العراقي. صمموا لي متجر إلكتروني راقي خلال أسبوع بس! لوحة التحكم سهلة وأدير كل شي بنفسي الحين. أنصح كل صاحب عمل يتعامل وياهم بدون تردد.</p>
+                    <div class="testimonial-author">سارة المالكي</div>
+                    <div class="testimonial-role">مؤسسة براند مستحضرات تجميل — أربيل</div>
+                </div>
+                <div class="glass-card testimonial-card fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">صراحة الشغل احترافي ومرتب. سرعة الموقع خرافية والتصميم فخم يمثل البراند مالتي. الدعم الفني متواصل ويردون بسرعة. المبيعات زادت 200% والعملاء يمدحون الموقع. شغل يستاهل كل فلس.</p>
+                    <div class="testimonial-author">محمد العبيدي</div>
+                    <div class="testimonial-role">صاحب شركة ملابس — البصرة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="faq-section section-padding" id="faq">
+        <div class="container">
+            <h2 class="section-title fade-in-up">الأسئلة <span class="text-gradient">الشائعة</span></h2>
+            <p class="section-subtitle fade-in-up">إجابات على أكثر الأسئلة شيوعاً التي يطرحها عملاؤنا</p>
+            <div class="faq-container">
+                <div class="faq-item fade-in-up" style="transition-delay: 0.1s;">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>كم يستغرق بناء الموقع؟</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            من يومين إلى 14 يوماً حسب حجم المشروع والباقة المختارة. الباقة الاقتصادية عادةً تُنجز خلال 2-5 أيام، بينما الباقات المتقدمة قد تستغرق أسبوعين لضمان أعلى مستوى من الجودة والتخصيص.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-up" style="transition-delay: 0.2s;">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>هل تقدمون دعماً فنياً؟</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            نعم، دعم فني متكامل لضمان استقرار عملك. كل باقة تتضمن فترة دعم فني مجاني تبدأ من شهر وتصل إلى سنة كاملة في باقة VIP. فريقنا متاح على مدار الساعة عبر الواتساب والتيليجرام للرد على استفساراتكم.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-up" style="transition-delay: 0.3s;">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>هل يمكنني إدارة المتجر بنفسي؟</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            بالتأكيد! نزودك بلوحة تحكم عربية سهلة الاستخدام تمكنك من إدارة المنتجات والطلبات والعملاء بكل سهولة. كما نقدم تدريباً مجانياً على استخدام لوحة التحكم لضمان تجربة سلسة.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-up" style="transition-delay: 0.4s;">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>ما هي طرق الدفع المتاحة؟</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            نقبل الدفع عبر التحويل البنكي، الدفع النقدي، وعبر المحافظ الإلكترونية مثل زين كاش وآسيا حوالة. نوفر مرونة كاملة في طرق الدفع لتناسب احتياجات جميع عملائنا.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-up" style="transition-delay: 0.5s;">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>هل الموقع متوافق مع الهواتف المحمولة؟</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            جميع مواقعنا مصممة بتقنية التصميم المتجاوب (Responsive Design) لتعمل بشكل مثالي على جميع الأجهزة — الهواتف المحمولة والأجهزة اللوحية وأجهزة الكمبيوتر. نضمن تجربة مستخدم ممتازة على كل شاشة.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta section-padding">
+        <div class="container">
+            <div class="cta-wrapper fade-in-up">
+                <div class="cta-glow cta-glow-1"></div>
+                <div class="cta-glow cta-glow-2"></div>
+                <h2>هل أنت مستعد لإطلاق <span class="text-gradient">واجهتك الرقمية؟</span></h2>
+                <p>انضم إلى أكثر من 100 صاحب عمل وثقوا بنا لبناء متاجرهم الإلكترونية وحققوا نتائج مذهلة</p>
+                <a href="contact.html" class="btn btn-glow-large">ابدأ مشروعك الآن</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-logo">NexusWebIQ © 2026 - جميع الحقوق محفوظة.</div>
-            <div class="social-icons">
-                <a href="#" class="social-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                </a>
-                <a href="#" class="social-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                </a>
-                <a href="#" class="social-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                </a>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">NexusWebIQ</a>
+                    <p>وكالة تطوير ويب متخصصة في بناء المتاجر الإلكترونية الاحترافية والواجهات الرقمية عالية الأداء. نحول أفكارك إلى واقع رقمي مذهل.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <a href="index.html">الرئيسية</a>
+                    <a href="portfolio.html">أعمالنا</a>
+                    <a href="pricing.html">الأسعار</a>
+                    <a href="contact.html">تواصل معنا</a>
+                </div>
+                <div class="footer-col">
+                    <h4>خدماتنا</h4>
+                    <a href="#">تصميم المتاجر</a>
+                    <a href="#">تحسين SEO</a>
+                    <a href="#">بناء العلامة التجارية</a>
+                    <a href="#">الدعم الفني</a>
+                </div>
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <a href="https://wa.me/9647855920345" target="_blank">واتساب: +964 785 592 0345</a>
+                    <a href="https://t.me/Moko250" target="_blank">تيليجرام: @Moko250</a>
+                    <a href="privacy.html">سياسة الخصوصية</a>
+                </div>
             </div>
-            <a href="https://wa.me/123456789" class="btn btn-whatsapp" target="_blank">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px; vertical-align: middle;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                تواصل عبر الواتساب
-            </a>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>NexusWebIQ © 2026 — جميع الحقوق محفوظة.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://wa.me/9647855920345" class="social-icon" target="_blank" aria-label="WhatsApp">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
