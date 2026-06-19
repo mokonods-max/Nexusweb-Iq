@@ -76,9 +76,9 @@
                     </div>
                 </div>
 
-                <!-- Item 2 -->
-                <div class="portfolio-item fade-in-up" style="transition-delay: 0.15s;">
-                    <img src="assets/roz_baghdad.jpg" alt="موقع روز بغداد" loading="lazy">
+                <!-- Item 2 — روز بغداد -->
+                <div id="roz-baghdad" class="portfolio-item fade-in-up" style="transition-delay: 0.15s; cursor:pointer;" onclick="openRozModal()">
+                    <img src="assets/roz_baghdad_hero.jpg" alt="موقع روز بغداد" loading="lazy">
                     <div class="portfolio-overlay">
                         <h3>موقع روز بغداد</h3>
                         <div class="tech-stack">
@@ -86,13 +86,113 @@
                             <span class="tech-badge">CSS3</span>
                             <span class="tech-badge">JavaScript</span>
                         </div>
-                        <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.95rem;">منصة رقمية راقية تعكس فخامة الأعمال بلمسة إبداعية وتجربة مستخدم لا مثيل لها</p>
-                        <a href="#" class="btn btn-outline">عرض المشروع</a>
+                        <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.95rem;">حيث يغدو العطر فناً أصيلاً — متجر عطور فاخر بهوية بصرية راقية وتجربة مستخدم استثنائية</p>
+                        <button class="btn btn-outline" onclick="event.stopPropagation(); openRozModal()" style="border:none;cursor:pointer;">🖼 عرض المعرض الكامل</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Roz Baghdad Lightbox Modal -->
+    <div id="rozModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.92); backdrop-filter:blur(12px); overflow-y:auto; padding:20px;">
+        <div style="max-width:1100px; margin:0 auto; position:relative; padding-top:60px;">
+            <!-- Close Button -->
+            <button onclick="closeRozModal()" style="position:fixed; top:20px; left:20px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:1.5rem; width:48px; height:48px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; z-index:10000;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">&times;</button>
+
+            <!-- Modal Header -->
+            <div style="text-align:center; margin-bottom:40px;">
+                <div style="display:inline-flex; align-items:center; gap:10px; background:rgba(176,38,255,0.15); border:1px solid rgba(176,38,255,0.3); border-radius:30px; padding:6px 20px; margin-bottom:16px;">
+                    <span style="font-size:0.8rem; color:#B026FF; letter-spacing:2px; text-transform:uppercase;">Real Project</span>
+                </div>
+                <h2 style="font-family:'Cairo',sans-serif; font-size:2rem; font-weight:800; color:#fff; margin-bottom:8px;">موقع روز بغداد <span style="background:linear-gradient(135deg,#00E5FF,#B026FF); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">— معرض المشروع</span></h2>
+                <p style="color:rgba(255,255,255,0.5); font-family:'Cairo',sans-serif; font-size:0.95rem;">متجر عطور فاخر — حيث يغدو العطر فناً أصيلاً &nbsp;·&nbsp; HTML5 &nbsp;·&nbsp; CSS3 &nbsp;·&nbsp; JavaScript</p>
+            </div>
+
+            <!-- Main Hero Preview -->
+            <div style="margin-bottom:20px; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 0 60px rgba(176,38,255,0.2);">
+                <img id="rozMainImg" src="assets/roz_baghdad_hero.jpg" alt="الواجهة الرئيسية" style="width:100%; display:block; border-radius:16px;">
+            </div>
+
+            <!-- Thumbnails Strip -->
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:40px;">
+                <div onclick="setMainImg('assets/roz_baghdad_hero.jpg', this)" style="border-radius:10px; overflow:hidden; cursor:pointer; border:2px solid #B026FF; transition:all 0.2s; opacity:1;" class="roz-thumb">
+                    <img src="assets/roz_baghdad_hero.jpg" alt="الصفحة الرئيسية" style="width:100%; height:80px; object-fit:cover; display:block;">
+                    <p style="font-family:'Cairo',sans-serif; font-size:0.72rem; color:#fff; text-align:center; padding:4px; background:rgba(176,38,255,0.3); margin:0;">الصفحة الرئيسية</p>
+                </div>
+                <div onclick="setMainImg('assets/roz_baghdad_1.jpg', this)" style="border-radius:10px; overflow:hidden; cursor:pointer; border:2px solid rgba(255,255,255,0.1); transition:all 0.2s; opacity:0.7;" class="roz-thumb">
+                    <img src="assets/roz_baghdad_1.jpg" alt="صفحة المنتجات" style="width:100%; height:80px; object-fit:cover; display:block;">
+                    <p style="font-family:'Cairo',sans-serif; font-size:0.72rem; color:#fff; text-align:center; padding:4px; background:rgba(0,0,0,0.4); margin:0;">صفحة المنتجات</p>
+                </div>
+                <div onclick="setMainImg('assets/roz_baghdad_2.jpg', this)" style="border-radius:10px; overflow:hidden; cursor:pointer; border:2px solid rgba(255,255,255,0.1); transition:all 0.2s; opacity:0.7;" class="roz-thumb">
+                    <img src="assets/roz_baghdad_2.jpg" alt="قسم الرجال والمرأة" style="width:100%; height:80px; object-fit:cover; display:block;">
+                    <p style="font-family:'Cairo',sans-serif; font-size:0.72rem; color:#fff; text-align:center; padding:4px; background:rgba(0,0,0,0.4); margin:0;">قسم الرجال &amp; المرأة</p>
+                </div>
+                <div onclick="setMainImg('assets/roz_baghdad_3.jpg', this)" style="border-radius:10px; overflow:hidden; cursor:pointer; border:2px solid rgba(255,255,255,0.1); transition:all 0.2s; opacity:0.7;" class="roz-thumb">
+                    <img src="assets/roz_baghdad_3.jpg" alt="صفحة المتجر" style="width:100%; height:80px; object-fit:cover; display:block;">
+                    <p style="font-family:'Cairo',sans-serif; font-size:0.72rem; color:#fff; text-align:center; padding:4px; background:rgba(0,0,0,0.4); margin:0;">صفحة المتجر</p>
+                </div>
+            </div>
+
+            <!-- Project Info -->
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:40px;">
+                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:20px; text-align:center; font-family:'Cairo',sans-serif;">
+                    <div style="font-size:1.5rem; margin-bottom:8px;">📦</div>
+                    <div style="color:#B026FF; font-weight:700; font-size:0.8rem; margin-bottom:4px;">نوع المشروع</div>
+                    <div style="color:#fff; font-size:0.9rem;">متجر عطور إلكتروني</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:20px; text-align:center; font-family:'Cairo',sans-serif;">
+                    <div style="font-size:1.5rem; margin-bottom:8px;">⏱️</div>
+                    <div style="color:#00E5FF; font-weight:700; font-size:0.8rem; margin-bottom:4px;">وقت التسليم</div>
+                    <div style="color:#fff; font-size:0.9rem;">أقل من أسبوع</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:20px; text-align:center; font-family:'Cairo',sans-serif;">
+                    <div style="font-size:1.5rem; margin-bottom:8px;">⭐</div>
+                    <div style="color:#f5c518; font-weight:700; font-size:0.8rem; margin-bottom:4px;">تقييم العميل</div>
+                    <div style="color:#fff; font-size:0.9rem;">تم بنجاح واحترافية عالية</div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align:center; padding-bottom:40px;">
+                <a href="contact.html" class="btn btn-glow-large" style="text-decoration:none;">ابدأ مشروعك مثله</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openRozModal() {
+        document.getElementById('rozModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        // scroll to anchor if needed
+        document.getElementById('rozModal').scrollTop = 0;
+    }
+    function closeRozModal() {
+        document.getElementById('rozModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    function setMainImg(src, el) {
+        document.getElementById('rozMainImg').src = src;
+        document.querySelectorAll('.roz-thumb').forEach(t => {
+            t.style.border = '2px solid rgba(255,255,255,0.1)';
+            t.style.opacity = '0.7';
+        });
+        el.style.border = '2px solid #B026FF';
+        el.style.opacity = '1';
+    }
+    // Close on backdrop click
+    document.getElementById('rozModal').addEventListener('click', function(e) {
+        if (e.target === this) closeRozModal();
+    });
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeRozModal();
+    });
+    // Auto-open if hash matches
+    if (window.location.hash === '#roz-baghdad') {
+        setTimeout(openRozModal, 300);
+    }
+    </script>
 
     <!-- CTA Section -->
     <section class="final-cta section-padding">
