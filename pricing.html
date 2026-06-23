@@ -3,12 +3,425 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأسعار والباقات — NexusWebIQ | اختر الباقة المناسبة لمشروعك</title>
-    <meta name="description" content="باقات تصميم مواقع ومتاجر إلكترونية بأسعار تنافسية تبدأ من 75,000 دينار عراقي. اختر الباقة المناسبة لميزانيتك وأطلق مشروعك الرقمي اليوم.">
+    <title>الأسعار والباقات — NexusWebIQ | باقات تصميم مواقع احترافية</title>
+    <meta name="description" content="باقات تصميم مواقع ومتاجر إلكترونية بأسعار تنافسية. اختر بين الشراء الكامل أو الاشتراك الشهري واحصل على موقعك الاحترافي اليوم.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ===== PRICING PAGE EXTRA STYLES ===== */
+
+        /* Section divider label */
+        .section-divider-label {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 80px 0 60px;
+            position: relative;
+        }
+        .section-divider-label::before,
+        .section-divider-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+        }
+        .divider-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 800;
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+        }
+        .divider-badge.purchase {
+            background: linear-gradient(135deg, rgba(176,38,255,0.15), rgba(0,229,255,0.15));
+            border: 1px solid rgba(0,229,255,0.3);
+            color: var(--accent-blue);
+        }
+        .divider-badge.subscription {
+            background: linear-gradient(135deg, rgba(255,165,0,0.12), rgba(255,80,150,0.12));
+            border: 1px solid rgba(255,165,0,0.4);
+            color: #FFA500;
+        }
+
+        /* Subscription section accent colors */
+        :root {
+            --accent-gold: #FFA500;
+            --accent-coral: #FF6B6B;
+            --sub-gradient: linear-gradient(135deg, #FFA500, #FF6B6B);
+            --sub-glow: 0 0 30px rgba(255,165,0,0.2);
+        }
+
+        /* Subscription grid */
+        .subscription-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Subscription card base */
+        .sub-card {
+            background: rgba(20, 14, 8, 0.55);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255,165,0,0.2);
+            border-radius: var(--radius-lg);
+            padding: 45px 35px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sub-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,165,0,0.04), transparent);
+            transform: skewX(-20deg);
+            transition: 0.6s;
+        }
+        .sub-card:hover::before {
+            left: 150%;
+        }
+        .sub-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,165,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), var(--sub-glow);
+        }
+
+        /* Featured subscription card */
+        .sub-card.sub-pro-card {
+            border-color: rgba(255,165,0,0.5);
+            box-shadow: 0 0 50px rgba(255,165,0,0.12);
+        }
+
+        .sub-tag {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: var(--sub-gradient);
+            color: #fff;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            box-shadow: 0 5px 20px rgba(255,165,0,0.35);
+            letter-spacing: 0.5px;
+        }
+
+        .sub-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .sub-card .price-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        /* Payment block */
+        .payment-block {
+            background: rgba(255,165,0,0.05);
+            border: 1px solid rgba(255,165,0,0.15);
+            border-radius: var(--radius-md);
+            padding: 20px 22px;
+            margin-bottom: 22px;
+        }
+
+        .payment-block-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        .payment-row:last-child { margin-bottom: 0; }
+        .payment-row .label { color: var(--text-secondary); }
+        .payment-row .amount {
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        .payment-row.total {
+            border-top: 1px solid rgba(255,165,0,0.2);
+            padding-top: 10px;
+            margin-top: 8px;
+        }
+        .payment-row.total .label {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .payment-row.total .amount {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        /* Monthly price */
+        .monthly-price {
+            text-align: center;
+            margin: 18px 0;
+        }
+        .monthly-price .big-price {
+            font-size: 2.6rem;
+            font-weight: 800;
+            background: var(--sub-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        .monthly-price .period {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* Sub features */
+        .sub-features {
+            list-style: none;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .sub-features li {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.98rem;
+            gap: 10px;
+        }
+        .sub-features li::before {
+            content: '✓';
+            color: var(--accent-gold);
+            font-weight: 800;
+            font-size: 1rem;
+            text-shadow: 0 0 10px rgba(255,165,0,0.5);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .sub-features li.exception::before {
+            content: '✕';
+            color: var(--accent-coral);
+            text-shadow: 0 0 10px rgba(255,107,107,0.4);
+        }
+
+        /* Notes block inside sub-card */
+        .sub-notes {
+            background: rgba(0,229,255,0.04);
+            border: 1px solid rgba(0,229,255,0.1);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px;
+            margin-bottom: 18px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .sub-notes strong { color: var(--accent-blue); }
+
+        /* Marketing highlight */
+        .marketing-highlight {
+            background: linear-gradient(135deg, rgba(255,165,0,0.08), rgba(255,107,107,0.08));
+            border: 1px solid rgba(255,165,0,0.25);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        .marketing-highlight p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .marketing-highlight .highlight-price {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+        }
+        .marketing-highlight .highlight-price small {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .marketing-highlight .daily-equiv {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* Sub btn */
+        .btn-sub {
+            background: var(--sub-gradient);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(255,165,0,0.2);
+        }
+        .btn-sub:hover {
+            box-shadow: 0 0 30px rgba(255,165,0,0.5), 0 0 50px rgba(255,107,107,0.3);
+            transform: translateY(-3px);
+        }
+        .btn-sub-outline {
+            background: transparent;
+            border: 1.5px solid var(--accent-gold);
+            color: var(--accent-gold);
+        }
+        .btn-sub-outline:hover {
+            background: rgba(255,165,0,0.08);
+            box-shadow: 0 0 25px rgba(255,165,0,0.3), inset 0 0 15px rgba(255,165,0,0.08);
+            transform: translateY(-3px);
+        }
+
+        /* ===== GENERAL NOTES SECTION ===== */
+        .general-notes-section {
+            padding: 60px 0 100px;
+        }
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .note-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 35px 30px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: var(--transition);
+        }
+        .note-card:hover {
+            border-color: rgba(0,229,255,0.25);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transform: translateY(-5px);
+        }
+        .note-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            flex-shrink: 0;
+            min-width: 50px;
+        }
+        .note-body h4 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+        .note-body p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+        .note-body a {
+            color: #25D366;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .note-body a:hover { color: #20b858; }
+
+        /* ===== ENTERPRISE CARD TWEAK ===== */
+        .enterprise-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .price-on-request {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0 6px;
+            line-height: 1.2;
+        }
+        .price-on-request-note {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* strikethrough old price */
+        .old-price {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-left: 12px;
+            font-weight: 500;
+        }
+
+        /* Page header */
+        .page-header {
+            padding: 160px 0 60px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .subscription-grid {
+                grid-template-columns: 1fr;
+            }
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            .pricing-card.pro-card {
+                transform: scale(1) !important;
+            }
+            .sub-card { padding: 35px 25px; }
+        }
+    </style>
 </head>
 <body>
     <!-- Background Effects -->
@@ -53,27 +466,45 @@
     <div class="page-header">
         <div class="container">
             <h1 class="fade-in-up">باقات تناسب <span class="text-gradient">طموحك</span></h1>
-            <p class="fade-in-up" style="transition-delay: 0.1s;">اختر الباقة المثالية لمشروعك وانطلق في عالم التجارة الإلكترونية بثقة واحترافية</p>
+            <p class="fade-in-up" style="transition-delay: 0.1s;">اختر بين الشراء الكامل أو الاشتراك الشهري — وانطلق في عالم الرقمي بثقة واحترافية كاملة</p>
         </div>
     </div>
 
-    <!-- Pricing Section -->
-    <section class="pricing-section">
+    <!-- ========================= -->
+    <!--  SECTION 1: PURCHASE PLANS -->
+    <!-- ========================= -->
+    <section class="pricing-section" style="padding-top: 20px;">
         <div class="container">
+
+            <!-- Divider Label -->
+            <div class="section-divider-label fade-in-up">
+                <div class="divider-badge purchase">
+                    🛒 باقات الشراء الكامل
+                </div>
+            </div>
+
             <div class="pricing-grid">
 
                 <!-- Tier 1: Economic -->
                 <div class="glass-card pricing-card fade-in-up" style="transition-delay: 0.1s;">
                     <h3>الباقة الاقتصادية</h3>
                     <p class="price-subtitle">مثالية للبدايات والمشاريع الصغيرة</p>
-                    <div class="price">75,000 <span>دينار عراقي</span></div>
+                    <div class="price">
+                        249,000
+                        <span>دينار عراقي</span>
+                    </div>
                     <ul class="features">
                         <li>واجهة منصة أنيقة</li>
                         <li>ربط مباشر للطلب عبر الواتساب</li>
                         <li>تصميم متوافق مع الجوال</li>
                         <li>سرعة أداء عالية</li>
+                        <li>استضافة مجانية لمدة شهر كامل</li>
+                        <li style="color: var(--text-muted); font-size: 0.9rem;">
+                            <span style="flex-shrink:0; color: var(--text-muted); font-weight:800;">ℹ</span>
+                            الدومين غير مشمول ويتحمله العميل
+                        </li>
                     </ul>
-                    <a href="contact.html" class="btn btn-outline full-width">اطلب هذه الباقة</a>
+                    <a href="contact.html" class="btn btn-outline full-width" id="btn-economic-purchase">اطلب هذه الباقة</a>
                 </div>
 
                 <!-- Tier 2: Professional (Highlighted) -->
@@ -81,7 +512,10 @@
                     <div class="tag">الأكثر طلباً</div>
                     <h3>الباقة الاحترافية</h3>
                     <p class="price-subtitle">الخيار الأمثل للمتاجر الجادة</p>
-                    <div class="price text-gradient">150,000 <span>دينار عراقي</span></div>
+                    <div class="price text-gradient">
+                        590,000
+                        <span style="-webkit-text-fill-color: var(--text-secondary);">دينار عراقي</span>
+                    </div>
                     <ul class="features">
                         <li>منصة رقمية متكاملة</li>
                         <li>نظام سلة تسوق ذكي</li>
@@ -93,51 +527,198 @@
                         <li>نظام كوبونات خصم</li>
                         <li>تقارير مبيعات</li>
                         <li>دعم فني لمدة شهر</li>
+                        <li>استضافة مجانية لمدة 6 أشهر</li>
                     </ul>
-                    <a href="contact.html" class="btn btn-gradient btn-glow full-width">اطلب هذه الباقة</a>
+                    <a href="contact.html" class="btn btn-gradient btn-glow full-width" id="btn-pro-purchase">اطلب هذه الباقة</a>
                 </div>
 
-                <!-- Tier 3: VIP Enterprise -->
+                <!-- Tier 3: Enterprise (Replaced VIP) -->
                 <div class="glass-card pricing-card fade-in-up" style="transition-delay: 0.3s;">
-                    <h3>باقة الشركات VIP</h3>
-                    <p class="price-subtitle">للشركات والعلامات التجارية الكبرى</p>
-                    <div class="price">450,000 <span>دينار عراقي</span></div>
+                    <h3>باقة الشركات والأنظمة المتخصصة</h3>
+                    <p class="price-subtitle">حلول خاصة للمشاريع المتقدمة والشركات</p>
+                    <div class="price-on-request">يُحدَّد بعد دراسة الطلب</div>
+                    <p class="price-on-request-note">تكلفة المشروع تُحدَّد بعد مراجعة متطلباتك الفنية</p>
 
-                    <!-- Preview Features (Always Visible) -->
+                    <!-- Preview Features -->
                     <ul class="features features-preview">
-                        <li>تصميم UI/UX حصري ومخصص من الصفر</li>
-                        <li>تطبيق ويب تقدمي PWA</li>
-                        <li>نظام إدارة مخزون متقدم AI</li>
-                        <li>سيرفر خاص Dedicated Server</li>
+                        <li>مواقع شركات احترافية متقدمة</li>
+                        <li>Portfolio احترافي</li>
+                        <li>أنظمة مخصصة من الصفر</li>
+                        <li>تنفيذ المشروع بالكامل حسب الطلب</li>
                     </ul>
 
-                    <!-- Read More Button -->
-                    <button class="read-more-btn" id="vip-read-more">
+                    <!-- Read More -->
+                    <button class="read-more-btn" id="enterprise-read-more">
                         <span class="btn-text">قراءة المزيد</span>
                         <span class="arrow">▼</span>
                     </button>
 
-                    <!-- Expanded Features (Hidden by default) -->
-                    <div class="features-expanded" id="vip-features">
+                    <!-- Expanded Features -->
+                    <div class="features-expanded" id="enterprise-features">
                         <ul class="features">
-                            <li>حماية سيبرانية متقدمة DDoS</li>
-                            <li>ربط مع أنظمة المحاسبة</li>
-                            <li>دعم فني VIP مدار الساعة لمدة سنة</li>
-                            <li>مدير حسابات شخصي</li>
-                            <li>تحسين سرعة الأداء الاستثنائي</li>
-                            <li>نظام تتبع الشحنات المباشر</li>
-                            <li>تسليم فوري لجميع الأكواد المصدرية</li>
+                            <li>تخصيص جميع التفاصيل والوظائف المطلوبة</li>
+                            <li>إمكانية إضافة مزايا وبرمجيات خاصة</li>
+                            <li>دراسة احتياجات العميل وتحويلها إلى نظام متكامل</li>
+                            <li>مرونة كاملة في التطوير والتخصيص</li>
+                            <li>حلول موجهة للشركات والمؤسسات والمشاريع الكبيرة</li>
                         </ul>
                     </div>
 
-                    <a href="contact.html" class="btn btn-outline full-width">اطلب هذه الباقة</a>
+                    <a href="contact.html" class="btn btn-outline full-width" id="btn-enterprise-purchase">تواصل لمعرفة السعر</a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Comparison Note -->
+    <!-- ================================== -->
+    <!--  SECTION 2: SUBSCRIPTION / RENTAL  -->
+    <!-- ================================== -->
+    <section style="padding: 20px 0 80px;">
+        <div class="container">
+
+            <!-- Divider Label -->
+            <div class="section-divider-label fade-in-up">
+                <div class="divider-badge subscription">
+                    🔄 باقات الاشتراك واستئجار المواقع
+                </div>
+            </div>
+
+            <p class="fade-in-up" style="text-align:center; color:var(--text-secondary); max-width:700px; margin: -20px auto 50px; font-size:1.05rem; line-height:1.9;">
+                هل تريد موقعاً احترافياً بتكلفة ابتدائية منخفضة؟ اشترك شهرياً واحصل على نفس جودة الباقات الكاملة بدفعات مريحة.
+            </p>
+
+            <div class="subscription-grid">
+
+                <!-- Sub Card 1: Economic Subscription -->
+                <div class="sub-card fade-in-up" style="transition-delay:0.1s;" id="sub-economic-card">
+                    <h3>اشتراك — الباقة الاقتصادية</h3>
+                    <p class="price-subtitle">نفس جودة الباقة الاقتصادية بدفعات شهرية مريحة</p>
+
+                    <!-- Payment block -->
+                    <div class="payment-block">
+                        <div class="payment-block-title">💳 الدفعة الأولى (لمرة واحدة)</div>
+                        <div class="payment-row">
+                            <span class="label">رسوم تأسيس</span>
+                            <span class="amount">75,000 د.ع</span>
+                        </div>
+                        <div class="payment-row">
+                            <span class="label">اشتراك الشهر الأول</span>
+                            <span class="amount">35,000 د.ع</span>
+                        </div>
+                        <div class="payment-row total">
+                            <span class="label">إجمالي الدفعة الأولى</span>
+                            <span class="amount">110,000 د.ع</span>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Price -->
+                    <div class="monthly-price">
+                        <div class="big-price">35,000 <span style="font-size:1rem; -webkit-text-fill-color:var(--text-secondary);">د.ع</span></div>
+                        <div class="period">/ شهرياً بعد الدفعة الأولى</div>
+                    </div>
+
+                    <!-- Notes -->
+                    <div class="sub-notes">
+                        <strong>ملاحظات مهمة:</strong><br>
+                        • مدة التنفيذ من 4 أيام إلى أسبوع<br>
+                        • فترة إنشاء الموقع <strong>لا تُحتسب</strong> من الاشتراك<br>
+                        • الاشتراك يبدأ من تاريخ <strong>تسليم الموقع</strong> للعميل
+                    </div>
+
+                    <!-- Features -->
+                    <ul class="sub-features">
+                        <li>جميع مميزات الباقة الاقتصادية</li>
+                        <li>نفس جودة وتصميم الباقة الاقتصادية</li>
+                        <li>دعم فني مستمر خلال الشهر الأول</li>
+                        <li>تكلفة ابتدائية منخفضة مقارنة بالشراء الكامل</li>
+                    </ul>
+
+                    <a href="https://wa.me/9647822267277" target="_blank" class="btn btn-sub-outline full-width" id="btn-sub-economic">اشترك عبر واتساب</a>
+                </div>
+
+                <!-- Sub Card 2: Professional Subscription -->
+                <div class="sub-card sub-pro-card fade-in-up" style="transition-delay:0.2s;" id="sub-pro-card">
+                    <div class="sub-tag">موصى به</div>
+                    <h3>اشتراك — الباقة الاحترافية</h3>
+                    <p class="price-subtitle">نفس مستوى الجودة الاحترافية بدفعات شهرية</p>
+
+                    <!-- Payment block -->
+                    <div class="payment-block">
+                        <div class="payment-block-title">💳 رسوم التأسيس (لمرة واحدة)</div>
+                        <div class="payment-row">
+                            <span class="label">تُدفع عند توقيع العقد</span>
+                            <span class="amount">100,000 د.ع</span>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Price -->
+                    <div class="monthly-price">
+                        <div class="big-price">70,000 <span style="font-size:1rem; -webkit-text-fill-color:var(--text-secondary);">د.ع</span></div>
+                        <div class="period">/ شهرياً</div>
+                    </div>
+
+                    <!-- Marketing Highlight -->
+                    <div class="marketing-highlight">
+                        <p>بدلاً من دفع <strong style="color:#fff;">590,000 د.ع</strong> دفعة واحدة، احصل على موقعك مقابل:</p>
+                        <div class="highlight-price">70,000 <small>د.ع/شهر</small></div>
+                        <div class="daily-equiv">≈ 2,300 د.ع يومياً فقط 🔥</div>
+                    </div>
+
+                    <!-- Features -->
+                    <ul class="sub-features">
+                        <li>جميع مميزات الباقة الاحترافية</li>
+                        <li>نفس مستوى الجودة والتصميم الاحترافي</li>
+                        <li class="exception">الاستضافة غير مشمولة (يتحملها العميل)</li>
+                        <li class="exception">الدومين غير مشمول (يتحمله العميل)</li>
+                    </ul>
+
+                    <a href="https://wa.me/9647822267277" target="_blank" class="btn btn-sub full-width" id="btn-sub-pro">اشترك عبر واتساب</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================= -->
+    <!--  SECTION 3: GENERAL NOTES -->
+    <!-- ========================= -->
+    <section class="general-notes-section">
+        <div class="container">
+            <h2 class="section-title fade-in-up">ملاحظات <span class="text-gradient">مهمة</span></h2>
+            <p class="section-subtitle fade-in-up">اطّلع على المعلومات التالية قبل اتخاذ قرارك</p>
+
+            <div class="notes-grid">
+                <!-- Note 1: Installments -->
+                <div class="note-card fade-in-up" style="transition-delay:0.1s;">
+                    <div class="note-number">١</div>
+                    <div class="note-body">
+                        <h4>نظام التقسيط</h4>
+                        <p>
+                            نوفر نظام تقسيط على بعض الباقات.
+                            لمعرفة تفاصيل التقسيط وإمكانية الاستفادة منه، يرجى التواصل مع فريق الدعم عبر
+                            <a href="https://wa.me/9647822267277" target="_blank">واتساب</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Note 2: Discounts -->
+                <div class="note-card fade-in-up" style="transition-delay:0.2s;">
+                    <div class="note-number">٢</div>
+                    <div class="note-body">
+                        <h4>عروض وخصومات حصرية</h4>
+                        <p>
+                            قد تتوفر عروض وخصومات حصرية لفترات محدودة على بعض الباقات. تواصل مباشرة عبر
+                            <a href="https://wa.me/9647822267277" target="_blank">واتساب</a>
+                            وقد تحصل على خصم حصري متاح لفترة محدودة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison / CTA -->
     <section class="section-padding" style="padding-top: 0;">
         <div class="container">
             <div class="cta-wrapper fade-in-up" style="text-align: center;">
@@ -146,8 +727,8 @@
                 <h2>لا تعرف أي باقة تناسبك؟ <span class="text-gradient">دعنا نساعدك</span></h2>
                 <p>تواصل مع فريقنا الآن واحصل على استشارة مجانية لاختيار الباقة المثالية لمشروعك</p>
                 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                    <a href="contact.html" class="btn btn-glow-large">تواصل معنا</a>
-                    <a href="https://wa.me/964782226727" class="btn btn-whatsapp" target="_blank">
+                    <a href="contact.html" class="btn btn-glow-large" id="btn-cta-contact">تواصل معنا</a>
+                    <a href="https://wa.me/9647822267277" class="btn btn-whatsapp" target="_blank" id="btn-cta-whatsapp">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                         واتساب مباشر
                     </a>
@@ -180,7 +761,7 @@
                 </div>
                 <div class="footer-col">
                     <h4>تواصل معنا</h4>
-                    <a href="https://wa.me/964782226727" target="_blank">واتساب: 0782226727</a>
+                    <a href="https://wa.me/9647822267277" target="_blank">واتساب: 0782226727</a>
                     <a href="https://t.me/NexusWebIQ" target="_blank">تيليجرام: @NexusWebIQ</a>
                     <a href="privacy.html">سياسة الخصوصية</a>
                 </div>
@@ -195,7 +776,7 @@
                     <a href="#" class="social-icon" aria-label="Facebook">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                     </a>
-                    <a href="https://wa.me/964782226727" class="social-icon" target="_blank" aria-label="WhatsApp">
+                    <a href="https://wa.me/9647822267277" class="social-icon" target="_blank" aria-label="WhatsApp">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     </a>
                 </div>
@@ -204,5 +785,18 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Enterprise read-more toggle
+        const enterpriseBtn = document.getElementById('enterprise-read-more');
+        const enterpriseFeatures = document.getElementById('enterprise-features');
+
+        if (enterpriseBtn && enterpriseFeatures) {
+            enterpriseBtn.addEventListener('click', () => {
+                const isExpanded = enterpriseFeatures.classList.toggle('open');
+                enterpriseBtn.classList.toggle('expanded', isExpanded);
+                enterpriseBtn.querySelector('.btn-text').textContent = isExpanded ? 'عرض أقل' : 'قراءة المزيد';
+            });
+        }
+    </script>
 </body>
 </html>
